@@ -6,7 +6,47 @@
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <title>journal</title>
 </head>
-<body>
+<body id="page" class="grid"> 
+    <!--the whole body will be a grid - 6 columns, the rows should repeat themselves to hold all the pokécards-->
+    <h1>Pokédex</h1>
+    <h2>Homepage</h2> <!--we also can just not have this part since the name of the page will be in the header-->
+
+    <header id="header"> <!--this whole thing can be copied from the index.html, minus the searchbar + different text-->
+
+        <hero id="hero">
+
+            <div id="hero-desc">
+                <h2>Favourites</h2>
+                <p>These are my most favourite Pokémon.</p>
+            </div>
+
+            <div id="hero-image">
+                <!--only if we want one-->
+
+            </div>
+
+        </hero>
+
+        <nav id="nav">
+            <ul id="nav-links">
+                <a href="../../index.html">Homepage</a>
+                <a href="#">Journal</a>
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <main id="main">
+        <!--4 grid columns as a section, each card should be 1 column each-->
+        <div id="poke-card">
+            <!--button to un-favourite goes here-->
+            <!--the rest of the card should be fetched from the favourites array and styled within the dom. styling can be copied from the main file-->
+
+            <!--add notes button + saved notes here-->
+
+        </div>
+    </main>
 
     
     <script src="../js/journal.js"></script>
