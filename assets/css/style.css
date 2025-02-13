@@ -1,1 +1,7 @@
 /* here we should just add a font i suppose */
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+};
+
+/* i'm doing somethign wrong! */
