@@ -36,24 +36,18 @@
 
         </hero>
 
-        <nav id="nav" class="flex justify-around">
-            <ul id="nav-links" class="text-[#90402c] text-xl font-bold -skew-x-5 py-4 px-4 pr-4 mr-5"> <!--figure out gap between the links-->
-                <a href="#" class="hover:text-[#96ced8] hover:animate-bounce ">Homepage</a> <!--doesnt work-->
-                </li><a href="./assets/html/journal.html" class="hover:text-[#96ced8]">Journal</a>
-            </ul>
-
+        <nav id="nav-links" class="text-center text-[#90402c] text-xl font-bold -skew-x-5 py-4 px-4 pr-4 tracking-wider flex justify-around">
+            <li class="list-none inline"><a href="#" class="hover:text-[#96ced8] decoration-dotted underline">Homepage</a></li> <!--doesnt work-->
+            <li class="list-none inline"><a href="./assets/html/journal.html" class="hover:text-[#96ced8]">Journal</a></li>
         </nav>
 
     </header>
 
-    <main id="main" class="w-2/3 grid grid-cols-4 gap-2 overflow-y-auto scrollbar">
+    <main id="cards-container" class="w-2/3 grid grid-cols-4 gap-2 overflow-y-auto scrollbar">
         <!--4 grid columns as a section, each card should be 1 column each-->
-        <section id="cards-container">
             <!--button to favourite goes here-->
             <!--the rest of the card should be fetches and styled within the dom-->
                 
-
-        </section>
     </main>
     
     <script src="./assets/js/main.js"></script>
