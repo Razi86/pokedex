@@ -40,6 +40,7 @@ const displayPokemon = async () => {
                 "font-bold",
                 "text-[#bc7a25]",
                 "tracking-wider",
+                "-skew-x-10"
 
             )
             //add styling
@@ -49,12 +50,12 @@ const displayPokemon = async () => {
 
             const pokemonId = document.createElement('h5');
             pokemonId.textContent = `ID: #${pokemon.id}`;
-            pokemonId.classList.add("font-bold")
+            pokemonId.classList.add("font-bold", "text-[#bc7a25]")
             //add styling
 
             const pokeType = document.createElement('p');
             pokeType.textContent = `Type: ${pokemon.types.map((typeInfo) => typeInfo.type.name).join(", ")}`; //see what that does
-            //add styling
+            pokeType.classList.add("text-[#bc7a25]")
 
             //maybe add background colours changed depending on pokemon type
 
