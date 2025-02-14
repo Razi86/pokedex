@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="../css/style.css">
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <title>journal</title>
 </head>
-<body id="page" class="grid"> 
-    <!--the whole body will be a grid - 6 columns, the rows should repeat themselves to hold all the pokécards-->
-    <h1>Pokédex</h1>
-    <h2>Homepage</h2> <!--we also can just not have this part since the name of the page will be in the header-->
-
-    <header id="header"> <!--this whole thing can be copied from the index.html, minus the searchbar + different text-->
-
+<body id="page" class="flex h-[100vh]"> 
+    <!--the whole body is flex and seperate the page to 2 parts-->
+    <header id="header" class=" bg-[url('../images/index-background.png')] bg-cover
+    max-h-full w-1/3 text-right bg-[#f6eac5] mr-2">
+        <!--should take up 2 rows of the grid. we can make it absolute to always stick to the page while scrolling the cards. this should define the whole rectangle-->
+        <h1 class="font-black">Pokédex</h1>
+        <h2>Homepage</h2> <!--we also can just not have this part since the name of the page will be in the header-->
+    
         <hero id="hero">
 
             <div id="hero-desc">
@@ -36,18 +41,110 @@
         </nav>
 
     </header>
-
-    <main id="main">
+    <main id="main" class="w-2/3 grid grid-cols-4 gap-2 overflow-y-auto scrollbar">
         <!--4 grid columns as a section, each card should be 1 column each-->
-        <div id="poke-card">
-            <!--button to un-favourite goes here-->
+        <div id="poke-card" class="bg-[url('../images/cards-background.png')] bg-cover
+        min-h-[200px] bg-[#f6eac5] rounded-sm">
+           <!--button to favourite goes here-->
             <!--the rest of the card should be fetched from the favourites array and styled within the dom. styling can be copied from the main file-->
 
             <!--add notes button + saved notes here-->
+        </div>
+        <div id="poke-card" class="bg-[url('../images/cards-background.png')] bg-cover
+        min-h-[200px] bg-[#f6eac5] rounded-sm">
+            <!--button to favourite goes here-->
+            <!--the rest of the card should be fetches and styled within the dom-->
 
         </div>
-    </main>
+        <div id="poke-card" class="bg-[url('../images/cards-background.png')] bg-cover
+        min-h-[200px] bg-[#f6eac5] rounded-sm">
+            <!--button to favourite goes here-->
+            <!--the rest of the card should be fetched from the favourites array and styled within the dom. styling can be copied from the main file-->
 
+            <!--add notes button + saved notes here-->
+        </div>
+        <div id="poke-card" class="bg-[url('../images/cards-background.png')] bg-cover
+        min-h-[200px] bg-[#f6eac5] rounded-sm">
+            <!--button to favourite goes here-->
+            <!--the rest of the card should be fetched from the favourites array and styled within the dom. styling can be copied from the main file-->
+
+            <!--add notes button + saved notes here-->
+        </div>
+        <div id="poke-card" class="bg-[url('../images/cards-background.png')] bg-cover
+        min-h-[200px] bg-[#f6eac5] rounded-sm">
+            <!--button to favourite goes here-->
+            <!--the rest of the card should be fetches and styled within the dom-->
+
+        </div>
+        <div id="poke-card" class="bg-[url('../images/cards-background.png')] bg-cover
+        min-h-[200px] bg-[#f6eac5] rounded-sm">
+            <!--button to favourite goes here-->
+            <!--the rest of the card should be fetches and styled within the dom-->
+
+        </div>
+        <div id="poke-card" class="bg-[url('../images/cards-background.png')] bg-cover
+        min-h-[200px] bg-[#f6eac5] rounded-sm">
+           <!--button to favourite goes here-->
+            <!--the rest of the card should be fetched from the favourites array and styled within the dom. styling can be copied from the main file-->
+
+            <!--add notes button + saved notes here-->
+        </div>
+        <div id="poke-card" class="bg-[url('../images/cards-background.png')] bg-cover
+        min-h-[200px] bg-[#f6eac5]">
+            <!--button to favourite goes here-->
+            <!--the rest of the card should be fetches and styled within the dom-->
+
+        </div>
+        <div id="poke-card" class="bg-[url('../images/cards-background.png')] bg-cover
+        min-h-[200px] bg-[#f6eac5] rounded-sm">
+           <!--button to favourite goes here-->
+            <!--the rest of the card should be fetched from the favourites array and styled within the dom. styling can be copied from the main file-->
+
+            <!--add notes button + saved notes here-->
+        </div>
+        <div id="poke-card" class="bg-[url('../images/cards-background.png')] bg-cover
+        min-h-[200px] bg-[#f6eac5]">
+            <!--button to favourite goes here-->
+            <!--the rest of the card should be fetched from the favourites array and styled within the dom. styling can be copied from the main file-->
+
+            <!--add notes button + saved notes here-->
+        </div>
+        <div id="poke-card" class="bg-[url('../images/cards-background.png')] bg-cover
+        min-h-[200px] bg-[#f6eac5] rounded-sm">
+            <!--button to favourite goes here-->
+            <!--the rest of the card should be fetched from the favourites array and styled within the dom. styling can be copied from the main file-->
+
+            <!--add notes button + saved notes here-->
+        </div>
+        <div id="poke-card" class="bg-[url('../images/cards-background.png')] bg-cover
+        min-h-[200px] bg-[#f6eac5] rounded-sm">
+            <!--button to favourite goes here-->
+            <!--the rest of the card should be fetches and styled within the dom-->
+
+        </div>
+        <div id="poke-card" class="bg-[url('../images/cards-background.png')] bg-cover
+        min-h-[200px] bg-[#f6eac5] rounded-sm">
+            <!--button to favourite goes here-->
+            <!--the rest of the card should be fetched from the favourites array and styled within the dom. styling can be copied from the main file-->
+
+            <!--add notes button + saved notes here-->
+        </div>
+        <div id="poke-card" class="bg-[url('../images/cards-background.png')] bg-cover
+        min-h-[200px] bg-[#f6eac5]">
+            <!--button to favourite goes here-->
+            <!--the rest of the card should be fetched from the favourites array and styled within the dom. styling can be copied from the main file-->
+
+            <!--add notes button + saved notes here-->
+        </div>
+        <div id="poke-card" class="bg-[url('../images/cards-background.png')] bg-cover
+        min-h-[200px] bg-[#f6eac5] rounded-sm">
+            <!--button to favourite goes here-->
+            <!--the rest of the card should be fetched from the favourites array and styled within the dom. styling can be copied from the main file-->
+
+            <!--add notes button + saved notes here-->
+        </div>
+        </main>
+  
     
     <script src="../js/journal.js"></script>
 </body>
