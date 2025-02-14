@@ -87,18 +87,17 @@ const displayPokemon = async () => {
 
             // tried to add different font colour based on pokemon type but couldnt figure it out... yet
             
-          /// favoriteButton
-            const favoriteButton = document.createElement("button");
-            favoriteButton.textContent = "Add to Favorites";
-            favoriteButton.classList.add("mt-2", "bg-blue-500", "text-white", "px-4", "py-2", "rounded");
-            favoriteButton.addEventListener("click", () => addToFavorites(pokemon));
+          /// favoriteIcon
+            const favoriteIcon = document.createElement("i");
+            favoriteIcon.classList.add("fa-regular","fa-heart","text-lg","cursor-pointer","text-red-400");
+            favoriteIcon.addEventListener("click", () => addToFavorites(pokemon));
              
         pokeCard.appendChild(pokeImg);
         pokeCard.appendChild(pokeName);
         pokeInfo.appendChild(pokemonId);
         pokeInfo.appendChild(pokeType);
         pokeCard.appendChild(pokeInfo);
-        pokeInfo.appendChild(favoriteButton);
+        pokeInfo.appendChild(favoriteIcon);
         cardsContainer.appendChild(pokeCard);
 
 
