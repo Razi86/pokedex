@@ -72,11 +72,21 @@ const displayPokemon = async () => {
 
             const pokeType = document.createElement('p');
             pokeType.textContent = `Type: ${pokemon.types.map((typeInfo) => typeInfo.type.name).join(", ")}`; //see what that does
+            // const colour = () => {
+            //     if(pokemon.type === 18) {
+            //     pokeType.classList.add(
+            //         "text-[#6390F0]"
+            //     )
+
+            //     };
+            // }
+            // colour();
             pokeType.classList.add(
                 "text-[#bc7a25]"
             )
 
-            //maybe add background colours changed depending on pokemon type
+            // tried to add different font colour based on pokemon type but couldnt figure it out... yet
+            
           /// favoriteButton
             const favoriteButton = document.createElement("button");
             favoriteButton.textContent = "Add to Favorites";
