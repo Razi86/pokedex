@@ -26,7 +26,12 @@ const displayPokemon = async () => {
                 "bg-[#f6eac4]",
                 "text-center",
                 "shadow-lg",
+                "bg-[url('assets/images/cards-background.png')]",
+                "bg-cover",
+                "min-h-[200px]",
+                "rounded-sm",
             )
+            
 
             const pokeImg = document.createElement('img');
             pokeImg.src = pokemon.sprites.front_default;
