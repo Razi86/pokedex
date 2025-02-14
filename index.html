@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="./assets/css/style.css">
+
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <title>Pokédex</title>
 </head>
@@ -35,10 +36,10 @@
 
         </hero>
 
-        <nav id="nav">
-            <ul id="nav-links">
-                <a href="#">Homepage</a>
-                <a href="./assets/html/journal.html">Journal</a>
+        <nav id="nav" class="flex justify-around">
+            <ul id="nav-links" class="text-[#90402c] text-xl font-bold -skew-x-5 py-4 px-4 pr-4 mr-5"> <!--figure out gap between the links-->
+                <a href="#" class="hover:text-[#96ced8] hover:animate-bounce ">Homepage</a> <!--doesnt work-->
+                </li><a href="./assets/html/journal.html" class="hover:text-[#96ced8]">Journal</a>
             </ul>
 
         </nav>
@@ -47,97 +48,101 @@
 
     <main id="main" class="w-2/3 grid grid-cols-4 gap-2 overflow-y-auto scrollbar">
         <!--4 grid columns as a section, each card should be 1 column each-->
-        <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
-        min-h-[200px] bg-[#f6eac5] rounded-sm">
+        <section id="cards-container">
             <!--button to favourite goes here-->
             <!--the rest of the card should be fetches and styled within the dom-->
+                <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
+            min-h-[200px] bg-[#f6eac5] rounded-sm">
+                <!--button to favourite goes here-->
+                <!--the rest of the card should be fetches and styled within the dom-->
 
-        </div>
-        <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
-        min-h-[200px] bg-[#f6eac5] rounded-sm">
-            <!--button to favourite goes here-->
-            <!--the rest of the card should be fetches and styled within the dom-->
+            </div>
+            <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
+            min-h-[200px] bg-[#f6eac5] rounded-sm">
+                <!--button to favourite goes here-->
+                <!--the rest of the card should be fetches and styled within the dom-->
 
-        </div>
-        <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
-        min-h-[200px] bg-[#f6eac5] rounded-sm">
-            <!--button to favourite goes here-->
-            <!--the rest of the card should be fetches and styled within the dom-->
+            </div>
+            <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
+            min-h-[200px] bg-[#f6eac5] rounded-sm">
+                <!--button to favourite goes here-->
+                <!--the rest of the card should be fetches and styled within the dom-->
 
-        </div>
-        <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
-        min-h-[200px] bg-[#f6eac5] rounded-sm">
-            <!--button to favourite goes here-->
-            <!--the rest of the card should be fetches and styled within the dom-->
+            </div>
+            <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
+            min-h-[200px] bg-[#f6eac5] rounded-sm">
+                <!--button to favourite goes here-->
+                <!--the rest of the card should be fetches and styled within the dom-->
 
-        </div>
-        <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
-        min-h-[200px] bg-[#f6eac5] rounded-sm">
-            <!--button to favourite goes here-->
-            <!--the rest of the card should be fetches and styled within the dom-->
+            </div>
+            <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
+            min-h-[200px] bg-[#f6eac5] rounded-sm">
+                <!--button to favourite goes here-->
+                <!--the rest of the card should be fetches and styled within the dom-->
 
-        </div>
-        <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
-        min-h-[200px] bg-[#f6eac5] rounded-sm">
-            <!--button to favourite goes here-->
-            <!--the rest of the card should be fetches and styled within the dom-->
+            </div>
+            <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
+            min-h-[200px] bg-[#f6eac5] rounded-sm">
+                <!--button to favourite goes here-->
+                <!--the rest of the card should be fetches and styled within the dom-->
 
-        </div>
-        <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
-        min-h-[200px] bg-[#f6eac5] rounded-sm">
-            <!--button to favourite goes here-->
-            <!--the rest of the card should be fetches and styled within the dom-->
+            </div>
+            <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
+            min-h-[200px] bg-[#f6eac5] rounded-sm">
+                <!--button to favourite goes here-->
+                <!--the rest of the card should be fetches and styled within the dom-->
 
-        </div>
-        <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
-        min-h-[200px] bg-[#f6eac5]">
-            <!--button to favourite goes here-->
-            <!--the rest of the card should be fetches and styled within the dom-->
+            </div>
+            <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
+            min-h-[200px] bg-[#f6eac5]">
+                <!--button to favourite goes here-->
+                <!--the rest of the card should be fetches and styled within the dom-->
 
-        </div>
-        <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
-        min-h-[200px] bg-[#f6eac5] rounded-sm">
-            <!--button to favourite goes here-->
-            <!--the rest of the card should be fetches and styled within the dom-->
+            </div>
+            <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
+            min-h-[200px] bg-[#f6eac5] rounded-sm">
+                <!--button to favourite goes here-->
+                <!--the rest of the card should be fetches and styled within the dom-->
 
-        </div>
-        <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
-        min-h-[200px] bg-[#f6eac5]">
-            <!--button to favourite goes here-->
-            <!--the rest of the card should be fetches and styled within the dom-->
+            </div>
+            <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
+            min-h-[200px] bg-[#f6eac5]">
+                <!--button to favourite goes here-->
+                <!--the rest of the card should be fetches and styled within the dom-->
 
-        </div>
-        <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
-        min-h-[200px] bg-[#f6eac5] rounded-sm">
-            <!--button to favourite goes here-->
-            <!--the rest of the card should be fetches and styled within the dom-->
+            </div>
+            <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
+            min-h-[200px] bg-[#f6eac5] rounded-sm">
+                <!--button to favourite goes here-->
+                <!--the rest of the card should be fetches and styled within the dom-->
 
-        </div>
-        <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
-        min-h-[200px] bg-[#f6eac5] rounded-sm">
-            <!--button to favourite goes here-->
-            <!--the rest of the card should be fetches and styled within the dom-->
+            </div>
+            <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
+            min-h-[200px] bg-[#f6eac5] rounded-sm">
+                <!--button to favourite goes here-->
+                <!--the rest of the card should be fetches and styled within the dom-->
 
-        </div>
-        <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
-        min-h-[200px] bg-[#f6eac5] rounded-sm">
-            <!--button to favourite goes here-->
-            <!--the rest of the card should be fetches and styled within the dom-->
+            </div>
+            <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
+            min-h-[200px] bg-[#f6eac5] rounded-sm">
+                <!--button to favourite goes here-->
+                <!--the rest of the card should be fetches and styled within the dom-->
 
-        </div>
-        <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
-        min-h-[200px] bg-[#f6eac5]">
-            <!--button to favourite goes here-->
-            <!--the rest of the card should be fetches and styled within the dom-->
+            </div>
+            <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
+            min-h-[200px] bg-[#f6eac5]">
+                <!--button to favourite goes here-->
+                <!--the rest of the card should be fetches and styled within the dom-->
 
-        </div>
-        <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
-        min-h-[200px] bg-[#f6eac5] rounded-sm">
-            <!--button to favourite goes here-->
-            <!--the rest of the card should be fetches and styled within the dom-->
+            </div>
+            <div id="poke-card" class="bg-[url('assets/images/cards-background.png')] bg-cover
+            min-h-[200px] bg-[#f6eac5] rounded-sm">
+                <!--button to favourite goes here-->
+                <!--the rest of the card should be fetches and styled within the dom-->
 
-        </div>
-        
+            </div>
+
+        </section>
     </main>
     
     <script src="./assets/js/main.js"></script>
