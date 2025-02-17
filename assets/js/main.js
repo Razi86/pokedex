@@ -1,3 +1,4 @@
+let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 // fetch pokécard info
 
 const cardsContainer = document.getElementById('cards-container');
@@ -17,7 +18,7 @@ const fetchPokemon = async (pokeId) => {
 
 // Function to save a Pokémon to favorites
 const addToFavorites = (pokemon) => {
-    let favorites = JSON.parse(localStorage.getItem("favorites")) ;
+
     if (!favorites.some(fav => fav.id === pokemon.id)) {
       favorites.push({ id: pokemon.id, name: pokemon.name, image: pokemon.sprites.front_default });
       localStorage.setItem("favorites", JSON.stringify(favorites));
