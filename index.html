@@ -20,8 +20,9 @@
         <h2>Homepage</h2> <!--we also can just not have this part since the name of the page will be in the header-->
     
         <hero id="hero">
-            <div id="search-bar">
+            <div id="search-bar" class="w-1/2 mx-auto">
                 <!--search bar goes here-->
+                <input type="text" placeholder="Search" class="text-lg rounded-md bg-[#90402c] text-[#dbb55c] p-1 text-center">
             </div>
 
             <div id="hero-desc">
@@ -43,7 +44,7 @@
 
     </header>
 
-    <main id="cards-container" class="w-2/3 grid grid-cols-4 gap-2 overflow-y-auto scrollbar">
+    <main id="cards-container" class="w-2/3 grid grid-cols-4 auto-rows-min gap-2 overflow-y-auto scrollbar">
         <!--4 grid columns as a section, each card should be 1 column each-->
             <!--button to favourite goes here-->
             <!--the rest of the card should be fetches and styled within the dom-->

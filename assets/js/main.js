@@ -1,6 +1,8 @@
 // fetch pokécard info
 
 const cardsContainer = document.getElementById('cards-container');
+const pokeNames = [];
+const pokeIds = [];
 
 const fetchPokemon = async (pokeId) => {
     try {
@@ -27,7 +29,7 @@ const addToFavorites = (pokemon) => {
 const displayPokemon = async () => {
     for(let i = 1; i <= 151; i++) {
         const pokemon = await fetchPokemon(i);
-        console.log(i);
+        //console.log(i);
 
         if (pokemon) {
             const pokeCard = document.createElement('div');
@@ -40,6 +42,7 @@ const displayPokemon = async () => {
                 "bg-[url('assets/images/cards-background.png')]",
                 "bg-cover",
                 "min-h-[200px]",
+                "max-h-fit",
                 "rounded-sm",
             )
             
@@ -100,10 +103,11 @@ const displayPokemon = async () => {
         pokeInfo.appendChild(favoriteIcon);
         cardsContainer.appendChild(pokeCard);
 
-
+        pokeNames.push(pokeName);
+        pokeIds.push(pokemonId);
         }
-    }
 
+    }
 
 };
 
@@ -119,3 +123,33 @@ displayPokemon();
     //save favourited pokémon to an array in local storage
 
 //search bar function. maybe left for last since it will need to call the fetched stuff
+const searchElement = document.querySelector("#search-bar input");
+
+searchElement.addEventListener("keyup" , function(e) {
+
+    const searchText = e.target.value;
+     if(!isNaN(searchText))
+        searchById(searchText);
+    else
+    searchByName(searchText);
+});
+
+
+const searchByName = (searchName) => {
+    pokeNames.forEach(pokeName => {
+        if(!pokeName.textContent.includes(searchName.toUpperCase()))
+            pokeName.parentElement.classList.add("hidden");
+        else
+        pokeName.parentElement.classList.remove("hidden");
+    })
+}
+
+const searchById = (searchId) => {
+    pokeIds.forEach(pokeId => {
+
+        if(pokeId.textContent.includes(searchId))
+            pokeId.parentElement.parentElement.classList.remove("hidden");
+        else
+        pokeId.parentElement.parentElement.classList.add("hidden");
+    })
+}
