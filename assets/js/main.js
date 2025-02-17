@@ -42,7 +42,6 @@ const displayPokemon = async () => {
                 "bg-[url('assets/images/cards-background.png')]",
                 "bg-cover",
                 "min-h-[200px]",
-                "max-h-fit",
                 "rounded-sm",
             )
             
@@ -126,12 +125,12 @@ displayPokemon();
 const searchElement = document.querySelector("#search-bar input");
 
 searchElement.addEventListener("keyup" , function(e) {
-
     const searchText = e.target.value;
+
      if(!isNaN(searchText))
         searchById(searchText);
     else
-    searchByName(searchText);
+        searchByName(searchText);
 });
 
 
