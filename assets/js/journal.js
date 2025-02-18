@@ -16,7 +16,7 @@ showFavorites = () => {
 //add notes fucntion
 
 
-//remove notes function
+//remove notes function.
 
 ///////
 const cardsContainer = document.getElementById('cards-container');
