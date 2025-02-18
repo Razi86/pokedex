@@ -18,11 +18,14 @@ const fetchPokemon = async (pokeId) => {
 };
 
 // Function to save a Pokémon to favorites
-const addToFavorites = (pokemon) => {
+const addToFavorites = (pokemon,favoriteIcon) => {
 
     if (!favorites.some(fav => fav.id === pokemon.id)) {
       favorites.push({ id: pokemon.id, name: pokemon.name, image: pokemon.sprites.front_default });
       localStorage.setItem("favorites", JSON.stringify(favorites));
+      console.log(favoriteIcon);
+      favoriteIcon.classList.add("fa");
+      favoriteIcon.classList.remove("fa-regular");
       alert(`${pokemon.name} added to favorites!`);
     } else {
       alert(`${pokemon.name} is already in favorites.`);
@@ -89,8 +92,14 @@ const displayPokemon = async () => {
             
           /// favoriteIcon
             const favoriteIcon = document.createElement("i");
-            favoriteIcon.classList.add("fa-regular","fa-heart","text-lg","cursor-pointer","text-red-400");
-            favoriteIcon.addEventListener("click", () => addToFavorites(pokemon));
+            favoriteIcon.classList.add("fa-heart","text-lg","cursor-pointer","text-red-400");
+            if (!favorites.some(fav => fav.id === pokemon.id)) 
+                favoriteIcon.classList.add("fa-regular");
+            else{
+                favoriteIcon.classList.add("fa");
+                favoriteIcon.classList.remove("fa-regular");
+            }
+            favoriteIcon.addEventListener("click", () => addToFavorites(pokemon,favoriteIcon));
              
         pokeCard.appendChild(pokeImg);
         pokeCard.appendChild(pokeName);
