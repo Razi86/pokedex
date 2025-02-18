@@ -31,7 +31,6 @@ const addToFavorites = (pokemon) => {
 const displayPokemon = async () => {
     for(let i = 1; i <= 151; i++) {
         const pokemon = await fetchPokemon(i);
-        console.log(i);
 
         if (pokemon) {
             const pokeCard = document.createElement('div');
@@ -47,7 +46,7 @@ const displayPokemon = async () => {
                 "rounded-sm",
                 "h-60",
                 "w-60"
-            )
+            );
             
 
             const pokeImg = document.createElement('img');
@@ -64,7 +63,7 @@ const displayPokemon = async () => {
                 "tracking-wider",
                 "-skew-x-10"
 
-            )
+            );
 
             const pokeInfo = document.createElement('span');
             pokeInfo.classList.add("flex-col", "gap-2", "text-sm");
@@ -74,24 +73,13 @@ const displayPokemon = async () => {
             pokemonId.classList.add(
                 "font-bold",
                 "text-[#bc7a25]"
-            )
+            );
 
             const pokeType = document.createElement('p');
             pokeType.textContent = `Type: ${pokemon.types.map((typeInfo) => typeInfo.type.name).join(", ")}`; //see what that does
-            // const colour = () => {
-            //     if(pokemon.type === 18) {
-            //     pokeType.classList.add(
-            //         "text-[#6390F0]"
-            //     )
-
-            //     };
-            // }
-            // colour();
             pokeType.classList.add(
                 "text-[#bc7a25]"
-            )
-
-            // tried to add different font colour based on pokemon type but couldnt figure it out... yet
+            );
             
 
 
@@ -122,8 +110,9 @@ const displayPokemon = async () => {
                 notesContainer.appendChild(newNote);
             }
 
-            addNotesButton.addEventListener = ('submit', (e) => {
-                e.preventDefault();
+            addNotesButton.addEventListener('click', (e) => {
+                // e.preventDefault();
+                console.log(e);
                 const finalNote = notesInput.value.trim();
                 if (finalNote) {
                     addNote(finalNote);
@@ -132,8 +121,7 @@ const displayPokemon = async () => {
                 } else {
                     alert('You cannot submit an empty note.')
                 }
-                // localStorage.setItem("note", JSON.stringify(finalNote));
-                // addItem(notesContainer);
+                localStorage.setItem("note", JSON.stringify(finalNote));
             });
             
           /// favoriteIcon
