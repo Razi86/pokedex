@@ -103,6 +103,57 @@ const loadFavorites = async () => {
         favoriteText.classList.add("fa","fa-heart","text-lg","cursor-pointer","text-red-400");
         favoriteText.addEventListener("click", () => removeFromFavorites(pokemonData));
 
+        const notesInput = document.createElement('input'); //will need to edit the pokécard height to make sure it fits
+            notesInput.type = 'text';
+            notesInput.placeholder = 'Add a note!';
+            notesInput.classList.add("px-4", "w-80%", "h-10", "overflow-y-scroll", "bg-white", "shadow-md", "rounded", "border");
+
+            const addNotesButton = document.createElement('button');
+            addNotesButton.textContent = " Save"
+            addNotesButton.classList.add(
+                "fa-regular",
+                "fa-note-sticky",
+                "cursor-pointer",
+                "text-sm",
+                "hover:text-[#bc7a25]",
+                "text-[#90402c]",
+                "font-bolder"
+
+            ); //will style later when it works
+
+            const addNote = (note) => {
+                const newNote = document.createElement('li');
+                newNote.classList.add("text-sm");
+            
+                const notesContainer = document.createElement('span');
+                notesContainer.textContent = note; //should make the text of the span be the li items?
+                notesContainer.classList.add("flex-grow");
+            
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = 'Delete';
+                deleteBtn.classList.add("text-red-500");
+                deleteBtn.addEventListener('click', () => deleteNewNote(newNote));
+            
+                pokeCard.appendChild(notesContainer);
+                newNote.appendChild(deleteBtn);
+                notesContainer.appendChild(newNote);
+            }
+
+            addNotesButton.addEventListener('click', (e) => {
+                // e.preventDefault();
+                console.log(e);
+                const finalNote = notesInput.value.trim();
+                if (finalNote) {
+                    addNote(finalNote);
+                    notesInput.value = '';
+                    notesInput.focus();
+                } else {
+                    alert('You cannot submit an empty note.')
+                }
+                localStorage.setItem("note", JSON.stringify(finalNote));
+            });
+            
+
         // Append all elements to the card
         pokeCard.appendChild(pokeImg);
         pokeCard.appendChild(pokeName);
@@ -110,6 +161,8 @@ const loadFavorites = async () => {
         pokeInfo.appendChild(pokeType);
         pokeInfo.appendChild(favoriteText); // Unfavorite button 
         pokeCard.appendChild(pokeInfo);
+        pokeCard.appendChild(notesInput); //same as above
+        pokeCard.appendChild(addNotesButton); //just testing if it works, delete later
         cardsContainer.appendChild(pokeCard);
     });
 };
