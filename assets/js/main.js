@@ -1,6 +1,10 @@
+let favorites = localStorage.getItem("favorites");
+favorites = favorites ? JSON.parse(favorites) : [];
 // fetch pokécard info
 
 const cardsContainer = document.getElementById('cards-container');
+const pokeNames = [];
+const pokeIds = [];
 
 const fetchPokemon = async (pokeId) => {
     try {
@@ -15,7 +19,7 @@ const fetchPokemon = async (pokeId) => {
 
 // Function to save a Pokémon to favorites
 const addToFavorites = (pokemon) => {
-    let favorites = JSON.parse(localStorage.getItem("favorites")) ;
+
     if (!favorites.some(fav => fav.id === pokemon.id)) {
       favorites.push({ id: pokemon.id, name: pokemon.name, image: pokemon.sprites.front_default });
       localStorage.setItem("favorites", JSON.stringify(favorites));
@@ -43,6 +47,7 @@ const displayPokemon = async () => {
                 "bg-[url('assets/images/cards-background.png')]",
                 "bg-cover",
                 "min-h-[200px]",
+                "max-h-fit",
                 "rounded-sm",
                 "h-60",
                 "w-60"
@@ -139,10 +144,11 @@ const displayPokemon = async () => {
         pokeCard.appendChild(addNotesButton); //just testing if it works, delete later
         cardsContainer.appendChild(pokeCard);
 
-
+        pokeNames.push(pokeName);
+        pokeIds.push(pokemonId);
         }
-    }
 
+    }
 
 };
 
@@ -163,3 +169,33 @@ displayPokemon();
     //save favourited pokémon to an array in local storage
 
 //search bar function. maybe left for last since it will need to call the fetched stuff
+const searchElement = document.querySelector("#search-bar input");
+
+searchElement.addEventListener("keyup" , function(e) {
+    const searchText = e.target.value;
+
+     if(!isNaN(searchText))
+        searchById(searchText);
+    else
+        searchByName(searchText);
+});
+
+
+const searchByName = (searchName) => {
+    pokeNames.forEach(pokeName => {
+        if(!pokeName.textContent.includes(searchName.toUpperCase()))
+            pokeName.parentElement.classList.add("hidden");
+        else
+        pokeName.parentElement.classList.remove("hidden");
+    })
+}
+
+const searchById = (searchId) => {
+    pokeIds.forEach(pokeId => {
+
+        if(pokeId.textContent.includes(searchId))
+            pokeId.parentElement.parentElement.classList.remove("hidden");
+        else
+        pokeId.parentElement.parentElement.classList.add("hidden");
+    })
+}
