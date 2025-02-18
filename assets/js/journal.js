@@ -59,7 +59,6 @@ const loadFavorites = async () => {
         // Create the Pokémon card
         const pokeCard = document.createElement('div');
         pokeCard.classList.add(
-            "flex-col",
             "justify-items-center",
             "bg-[#f6eac4]",
             "text-center",
@@ -67,7 +66,6 @@ const loadFavorites = async () => {
             "bg-[url('../images/cards-background.png')]",
             "bg-cover",
             "min-h-[200px]",
-            "w-60",
             "max-h-fit",
             "rounded-sm"
         );
@@ -100,8 +98,7 @@ const loadFavorites = async () => {
         // Favorite icon (remove from favorites on click)
         const favoriteText = document.createElement("i");
         favoriteText.id = `favorite-${pokemonData.id}`;
-        //favoriteText.textContent = "Unfavorite"; // Unfavorite
-        favoriteText.classList.add("fa","fa-heart","text-lg","cursor-pointer","text-red-400");
+        favoriteText.classList.add("fa","fa-heart","text-lg","cursor-pointer","text-red-400","block");
         favoriteText.addEventListener("click", () => removeFromFavorites(pokemonData));
 
         const notesInput = document.createElement('input'); //will need to edit the pokécard height to make sure it fits
