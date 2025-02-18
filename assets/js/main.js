@@ -103,6 +103,38 @@ const displayPokemon = async () => {
             const addNotesButton = document.createElement('button');
             addNotesButton.textContent = " Save"
             addNotesButton.classList.add("fa-regular", "fa-note-sticky", "cursor-pointer", "text-sm"); //will style later when it works
+
+            const addNote = (note) => {
+                const newNote = document.createElement('li');
+                newNote.classList.add("text-sm");
+            
+                const notesContainer = document.createElement('span');
+                notesContainer.textContent = note; //should make the text of the span be the li items?
+                notesContainer.classList.add("flex-grow");
+            
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = 'Delete';
+                deleteBtn.classList.add("text-red-500");
+                deleteBtn.addEventListener('click', () => deleteNewNote(newNote));
+            
+                pokeCard.appendChild(notesContainer);
+                newNote.appendChild(deleteBtn);
+                notesContainer.appendChild(newNote);
+            }
+
+            addNotesButton.addEventListener = ('submit', (e) => {
+                e.preventDefault();
+                const finalNote = notesInput.value.trim();
+                if (finalNote) {
+                    addNote(finalNote);
+                    notesInput.value = '';
+                    notesInput.focus();
+                } else {
+                    alert('You cannot submit an empty note.')
+                }
+                // localStorage.setItem("note", JSON.stringify(finalNote));
+                // addItem(notesContainer);
+            });
             
           /// favoriteIcon
             const favoriteIcon = document.createElement("i");
@@ -129,39 +161,11 @@ const displayPokemon = async () => {
 
 displayPokemon();
 
-const addNote = (note) => {
-    const newNote = document.createElement('li');
-    newNote.classList.add("text-sm");
-
-    const notesContainer = document.createElement('span');
-    notesContainer.textContent = note; //should make the text of the span be the li items?
-    notesContainer.classList.add("flex-grow");
-
-    const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = 'Delete';
-    deleteBtn.classList.add("text-red-500");
-    deleteBtn.addEventListener('click', () => deleteNewNote(newNote));
-
-    pokeCard.appendChild(notesContainer);
-    newNote.appendChild(deleteBtn);
-    notesContainer.appendChild(newNote);
-}
 
 
 
-addNotesButton.addEventListener = ('submit', (e) => {
-    e.preventDefault();
-    const finalNote = notesInput.value.trim();
-    if (finalNote) {
-        addNote(finalNote);
-        notesInput.value = '';
-        notesInput.focus();
-    } else {
-        alert('You cannot submit an empty note.')
-    }
-    // localStorage.setItem("note", JSON.stringify(finalNote));
-    // addItem(notesContainer);
-});
+
+
 
 
     //style the card
