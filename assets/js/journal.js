@@ -1,14 +1,5 @@
 // fetch favourited pokémon from local storage and populate the page into cards
     //cards styling, copied presumably
-const mainContent = document.getElementById("main");
-
-showFavorites = () => {
-    if(favorites) {
-        
-    }else
-        mainContent.textContent = "There is nothing to show";
-
-}
 
 //function to remove favourited pokémon
 
@@ -76,6 +67,7 @@ const loadFavorites = async () => {
             "bg-[url('../images/cards-background.png')]",
             "bg-cover",
             "min-h-[200px]",
+            "max-h-fit",
             "rounded-sm"
         );
 
@@ -105,10 +97,10 @@ const loadFavorites = async () => {
         pokeType.classList.add("text-[#bc7a25]");
 
         // Favorite icon (remove from favorites on click)
-        const favoriteText = document.createElement("span");
+        const favoriteText = document.createElement("i");
         favoriteText.id = `favorite-${pokemonData.id}`;
-        favoriteText.textContent = "Unfavorite"; // Unfavorite
-        favoriteText.classList.add("cursor-pointer", "text-red-400", "font-bold", "text-lg");
+        //favoriteText.textContent = "Unfavorite"; // Unfavorite
+        favoriteText.classList.add("fa","fa-heart","text-lg","cursor-pointer","text-red-400");
         favoriteText.addEventListener("click", () => removeFromFavorites(pokemonData));
 
         // Append all elements to the card
