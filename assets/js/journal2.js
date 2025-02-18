@@ -17,7 +17,7 @@ const removeFromFavorites = (pokemon) => {
     const index = favorites.findIndex(fav => fav.id === pokemon.id);
 
     if (index !== -1) {
-        // Remove from favorites
+        // Remove from favorites.
         favorites.splice(index, 1);
         console.log(`${pokemon.name} removed from favorites`);
     }
