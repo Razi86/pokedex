@@ -1,4 +1,5 @@
-let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+let favorites = localStorage.getItem("favorites");
+favorites = favorites ? JSON.parse(favorites) : [];
 // fetch pokécard info
 
 const cardsContainer = document.getElementById('cards-container');
@@ -43,6 +44,7 @@ const displayPokemon = async () => {
                 "bg-[url('assets/images/cards-background.png')]",
                 "bg-cover",
                 "min-h-[200px]",
+                "max-h-fit",
                 "rounded-sm",
             )
             
