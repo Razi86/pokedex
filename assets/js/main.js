@@ -28,10 +28,13 @@ const addToFavorites = (pokemon) => {
       alert(`${pokemon.name} is already in favorites.`);
     }
   };
+
+
+
+
 const displayPokemon = async () => {
     for(let i = 1; i <= 151; i++) {
         const pokemon = await fetchPokemon(i);
-        //console.log(i);
 
         if (pokemon) {
             const pokeCard = document.createElement('div');
@@ -46,7 +49,9 @@ const displayPokemon = async () => {
                 "min-h-[200px]",
                 "max-h-fit",
                 "rounded-sm",
-            )
+                "h-60",
+                "w-60"
+            );
             
 
             const pokeImg = document.createElement('img');
@@ -63,7 +68,7 @@ const displayPokemon = async () => {
                 "tracking-wider",
                 "-skew-x-10"
 
-            )
+            );
 
             const pokeInfo = document.createElement('span');
             pokeInfo.classList.add("flex-col", "gap-2", "text-sm");
@@ -73,24 +78,56 @@ const displayPokemon = async () => {
             pokemonId.classList.add(
                 "font-bold",
                 "text-[#bc7a25]"
-            )
+            );
 
             const pokeType = document.createElement('p');
             pokeType.textContent = `Type: ${pokemon.types.map((typeInfo) => typeInfo.type.name).join(", ")}`; //see what that does
-            // const colour = () => {
-            //     if(pokemon.type === 18) {
-            //     pokeType.classList.add(
-            //         "text-[#6390F0]"
-            //     )
-
-            //     };
-            // }
-            // colour();
             pokeType.classList.add(
                 "text-[#bc7a25]"
-            )
+            );
+            
 
-            // tried to add different font colour based on pokemon type but couldnt figure it out... yet
+
+            const notesInput = document.createElement('input'); //will need to edit the pokécard height to make sure it fits
+            notesInput.type = 'text';
+            notesInput.placeholder = 'Placeholder';
+            notesInput.classList.add("px-4", "w-80%", "h-10", "overflow-y-scroll", "bg-white", "shadow-md", "rounded", "border");
+
+            const addNotesButton = document.createElement('button');
+            addNotesButton.textContent = " Save"
+            addNotesButton.classList.add("fa-regular", "fa-note-sticky", "cursor-pointer", "text-sm"); //will style later when it works
+
+            const addNote = (note) => {
+                const newNote = document.createElement('li');
+                newNote.classList.add("text-sm");
+            
+                const notesContainer = document.createElement('span');
+                notesContainer.textContent = note; //should make the text of the span be the li items?
+                notesContainer.classList.add("flex-grow");
+            
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = 'Delete';
+                deleteBtn.classList.add("text-red-500");
+                deleteBtn.addEventListener('click', () => deleteNewNote(newNote));
+            
+                pokeCard.appendChild(notesContainer);
+                newNote.appendChild(deleteBtn);
+                notesContainer.appendChild(newNote);
+            }
+
+            addNotesButton.addEventListener('click', (e) => {
+                // e.preventDefault();
+                console.log(e);
+                const finalNote = notesInput.value.trim();
+                if (finalNote) {
+                    addNote(finalNote);
+                    notesInput.value = '';
+                    notesInput.focus();
+                } else {
+                    alert('You cannot submit an empty note.')
+                }
+                localStorage.setItem("note", JSON.stringify(finalNote));
+            });
             
           /// favoriteIcon
             const favoriteIcon = document.createElement("i");
@@ -103,6 +140,8 @@ const displayPokemon = async () => {
         pokeInfo.appendChild(pokeType);
         pokeCard.appendChild(pokeInfo);
         pokeInfo.appendChild(favoriteIcon);
+        pokeCard.appendChild(notesInput); //same as above
+        pokeCard.appendChild(addNotesButton); //just testing if it works, delete later
         cardsContainer.appendChild(pokeCard);
 
         pokeNames.push(pokeName);
@@ -115,6 +154,11 @@ const displayPokemon = async () => {
 
 
 displayPokemon();
+
+
+
+
+
 
 
 
