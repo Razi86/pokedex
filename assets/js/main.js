@@ -1,4 +1,5 @@
-let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+let favorites = localStorage.getItem("favorites");
+favorites = favorites ? JSON.parse(favorites) : [];
 // fetch pokécard info
 
 const cardsContainer = document.getElementById('cards-container');
@@ -127,12 +128,12 @@ displayPokemon();
 const searchElement = document.querySelector("#search-bar input");
 
 searchElement.addEventListener("keyup" , function(e) {
-
     const searchText = e.target.value;
+
      if(!isNaN(searchText))
         searchById(searchText);
     else
-    searchByName(searchText);
+        searchByName(searchText);
 });
 
 
