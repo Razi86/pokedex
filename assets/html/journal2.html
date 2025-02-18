@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Pokédex</title>
+</head>
+<body id="page" class="flex h-[100vh]"> 
+    <header id="header" class="bg-[url('../images/index-background.png')] bg-cover max-h-full w-1/3 text-right bg-[#f6eac5] mr-2">
+        <h1 class="font-black flex justify-around">Pokédex</h1>
+        <h2 class="font-black flex ">Journalpage</h2>
+    
+        <hero id="hero">
+            <div id="search-bar"></div>
+            <div id="hero-desc">
+                <h2 class="font-black flex justify-around">Favourites</h2>
+                <p class="font-black flex justify-around">These are my most favourite Pokémon.</p>
+            </div>
+        </hero>
+
+        <nav id="nav-links" class="text-center text-[#90402c] text-xl font-bold -skew-x-5 py-4 px-4 pr-4 tracking-wider flex justify-around">
+            <li class="list-none inline"><a href="../../index.html" class="hover:text-[#54351C] decoration-dotted underline decoration-4 underline-offset-6">Homepage</a></li>
+            <li class="list-none inline"><a href="../html/journal.html" class="hover:text-[#54351C]">Journal</a></li>
+            <li class="list-none inline"><a href="#" class="hover:text-[#54351C]">Journal2</a></li>
+        </nav>
+    </header>
+
+    <main id="cards-container" class="w-2/3 grid grid-cols-4 gap-2 overflow-y-auto scrollbar" ></main>
+    
+    <script src="../js/journal2.js"></script>
+</body>
+</html>
+
+
+
