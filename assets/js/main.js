@@ -90,12 +90,21 @@ const displayPokemon = async () => {
 
             const notesInput = document.createElement('input'); //will need to edit the pokécard height to make sure it fits
             notesInput.type = 'text';
-            notesInput.placeholder = 'Placeholder';
+            notesInput.placeholder = 'Add a note!';
             notesInput.classList.add("px-4", "w-80%", "h-10", "overflow-y-scroll", "bg-white", "shadow-md", "rounded", "border");
 
             const addNotesButton = document.createElement('button');
             addNotesButton.textContent = " Save"
-            addNotesButton.classList.add("fa-regular", "fa-note-sticky", "cursor-pointer", "text-sm"); //will style later when it works
+            addNotesButton.classList.add(
+                "fa-regular",
+                "fa-note-sticky",
+                "cursor-pointer",
+                "text-sm",
+                "hover:text-[#bc7a25]",
+                "text-[#90402c]",
+                "font-bolder"
+
+            ); //will style later when it works
 
             const addNote = (note) => {
                 const newNote = document.createElement('li');
