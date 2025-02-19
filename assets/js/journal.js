@@ -108,7 +108,6 @@ const loadFavorites = async () => {
                 "px-4",
                 "w-90%",
                 "h-8",
-                "overflow-y-scroll",
                 "bg-white",
                 "shadow-md",
                 "rounded-lg",

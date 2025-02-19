@@ -42,7 +42,6 @@ const displayPokemon = async () => {
         if (pokemon) {
             const pokeCard = document.createElement('div');
             pokeCard.classList.add(
-                "flex-col",
                 "justify-items-center",
                 "bg-[#f6eac4]",
                 "text-center",
@@ -51,9 +50,7 @@ const displayPokemon = async () => {
                 "bg-cover",
                 "min-h-[200px]",
                 "max-h-fit",
-                "rounded-sm",
-                "h-60",
-                "w-60"
+                "rounded-sm"
             );
             
 
@@ -92,7 +89,7 @@ const displayPokemon = async () => {
             
           /// favoriteIcon
             const favoriteIcon = document.createElement("i");
-            favoriteIcon.classList.add("fa-heart","text-lg","cursor-pointer","text-red-400");
+            favoriteIcon.classList.add("fa-heart","text-lg","cursor-pointer","text-red-400","mt-2");
             if (!favorites.some(fav => fav.id === pokemon.id)) 
                 favoriteIcon.classList.add("fa-regular");
             else{
