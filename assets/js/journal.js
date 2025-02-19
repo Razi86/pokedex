@@ -3,9 +3,7 @@
 
 //function to remove favourited pokémon
 
-let saveNotes = []; //defining array for saving notes to storage
-let savedNotes = localStorage.getItem("note");
-savedNotes = savedNotes ? JSON.parse(savedNotes) : [];
+let saveNotes = JSON.parse(localStorage.getItem("note")) || [];
 
 
 ///////
@@ -134,14 +132,15 @@ const loadFavorites = async () => {
 
         ); //will style later when it works
 
+
         const addNote = (note) => {
             const newNote = document.createElement('li');
             newNote.setAttribute("id", note.id);
-            newNote.textContent = note.title;
+            // newNote.textContent = note.text;
             newNote.classList.add("text-xs", "list-none", "inline");
             
             const notesContainer = document.createElement('span');
-            notesContainer.textContent = note; //should make the text of the span be the li items?
+            notesContainer.textContent = note.text; //should make the text of the span be the li items?
             notesContainer.classList.add(
                 "block",
                 "text-xs",
@@ -156,30 +155,33 @@ const loadFavorites = async () => {
             deleteBtn.textContent = 'Delete';
             deleteBtn.classList.add("text-red-500", "list-none", "inline", "pl-2", "hover:font-bold");
             deleteBtn.addEventListener('click', () => {
-                // saveNotes = saveNotes.filter((note) => saveNotes - note.id); //deletes all of the notes :/
-                // saveNotes = saveNotes.filter((note) => note.id !== newNote.id);
+                saveNotes = saveNotes.filter((note) => note.id !== newNote.id);
                 localStorage.setItem("note", JSON.stringify(saveNotes));
 
-                pokeCard.removeChild(notesContainer);
+                pokeCard.removeChild(newNote);
             });
             console.log(typeof note.id); //undefined
             console.log(typeof newNote.id); //string
 
-            
+            newNote.appendChild(notesContainer);
             newNote.appendChild(deleteBtn);
-            notesContainer.appendChild(newNote);
-            pokeCard.appendChild(notesContainer);
+            pokeCard.appendChild(newNote);
         }
 
 
         addNotesButton.addEventListener('click', (e) => {
-            console.log(e);
+            console.log(pokemonData.id);
             const finalNote = notesInput.value.trim();
             //add note to card from input field
             if (finalNote) {
-                saveNotes.push(finalNote);
+                let noteObject = {
+                    id: `${new Date().getTime()}${finalNote}`,
+                    pokemonID: pokemonData.id,
+                    text: finalNote
+                }
+                saveNotes.push(noteObject);
                 localStorage.setItem("note", JSON.stringify(saveNotes));
-                addNote(finalNote);
+                addNote(noteObject);
                 notesInput.value = '';
                 notesInput.focus();
             } else {
@@ -199,6 +201,14 @@ const loadFavorites = async () => {
     pokeCard.appendChild(pokeInfo);
     pokeCard.appendChild(notesInput); //same as above
     pokeCard.appendChild(addNotesButton); //just testing if it works, delete later
+
+    saveNotes.forEach((note) => {
+        if(note.pokemonID == pokemonData.id) {
+            addNote(note);
+        }
+    })
+
+
     cardsContainer.appendChild(pokeCard);
     });
 };
