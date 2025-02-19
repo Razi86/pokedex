@@ -83,7 +83,7 @@ const loadFavorites = async () => {
         );
 
         const pokeInfo = document.createElement('span');
-        pokeInfo.classList.add("flex-col", "gap-2", "text-sm");
+        pokeInfo.classList.add("flex-col", "gap-2", "text-sm", "block");
 
         const pokemonId = document.createElement('h5');
         pokemonId.textContent = `ID: #${pokemonData.id}`;
@@ -96,7 +96,7 @@ const loadFavorites = async () => {
         // Favorite icon (remove from favorites on click)
         const favoriteText = document.createElement("i");
         favoriteText.id = `favorite-${pokemonData.id}`;
-        favoriteText.classList.add("fa","fa-heart","text-lg","cursor-pointer","text-red-400","block");
+        favoriteText.classList.add("fa","fa-heart","text-lg","cursor-pointer","text-red-400","block", "m-1");
         favoriteText.addEventListener("click", () => removeFromFavorites(pokemonData));
 
         const notesInput = document.createElement('input'); //will need to edit the pokécard height to make sure it fits
@@ -110,7 +110,9 @@ const loadFavorites = async () => {
                 "shadow-md",
                 "rounded-lg",
                 "border",
-                "text-xs"
+                "text-xs",
+                "m-1",
+                "inline-block"
             );
 
         const addNotesButton = document.createElement('button');
@@ -126,9 +128,9 @@ const loadFavorites = async () => {
             "bg-[#90402c]",
             "px-2",
             "py-1",
-            "m-1",
+            "my-2",
             "rounded-xl",
-            "shadow-md"
+            "shadow-md",
 
         ); //will style later when it works
 
@@ -160,8 +162,6 @@ const loadFavorites = async () => {
 
                 pokeCard.removeChild(newNote);
             });
-            console.log(typeof note.id); //undefined
-            console.log(typeof newNote.id); //string
 
             newNote.appendChild(notesContainer);
             newNote.appendChild(deleteBtn);
