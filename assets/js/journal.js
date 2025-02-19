@@ -140,7 +140,8 @@ const loadFavorites = async () => {
 
         const addNote = (note) => {
             const newNote = document.createElement('li');
-            // newNote.id = note.id;
+            newNote.setAttribute("id", note.id);
+            newNote.textContent = note.title;
             newNote.classList.add("text-xs", "list-none", "inline");
             
             const notesContainer = document.createElement('span');
@@ -159,11 +160,14 @@ const loadFavorites = async () => {
             deleteBtn.textContent = 'Delete';
             deleteBtn.classList.add("text-red-500", "list-none", "inline", "pl-2", "hover:font-bold");
             deleteBtn.addEventListener('click', () => {
-                // let updatedNotes = saveNotes.filter((note) => saveNotes - newNote.id); //deletes all of the notes :/
-                // localStorage.setItem("note", JSON.stringify(updatedNotes));
+                // saveNotes = saveNotes.filter((note) => saveNotes - note.id); //deletes all of the notes :/
+                // saveNotes = saveNotes.filter((note) => note.id !== newNote.id);
+                localStorage.setItem("note", JSON.stringify(saveNotes));
 
                 pokeCard.removeChild(notesContainer);
             });
+            console.log(typeof note.id); //undefined
+            console.log(typeof newNote.id); //string
 
             
             newNote.appendChild(deleteBtn);
