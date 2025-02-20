@@ -34,6 +34,9 @@ const removeFromFavorites = (pokemon) => {
     // Save the updated favorites array to localStorage
     localStorage.setItem("favorites", JSON.stringify(favorites));
 
+    saveNotes = saveNotes.filter((note) => note.pokemonID !== pokemon.id);
+    localStorage.setItem("note", JSON.stringify(saveNotes)); // Update notes in localStorage
+
     // Reload favorites to reflect the change
     loadFavorites();
 };
