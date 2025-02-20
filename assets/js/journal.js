@@ -64,7 +64,6 @@ const loadFavorites = async () => {
             "bg-[url('../images/cards-background.png')]",
             "bg-cover",
             "min-h-[200px]",
-            "max-h-fit",
             "rounded-sm"
         );
 
@@ -99,12 +98,15 @@ const loadFavorites = async () => {
         favoriteText.classList.add("fa","fa-heart","text-lg","cursor-pointer","text-red-400","block", "m-1");
         favoriteText.addEventListener("click", () => removeFromFavorites(pokemonData));
 
+        const addNoteContainer = document.createElement("div");
+        addNoteContainer.classList.add("flex","justify-center");
+
         const notesInput = document.createElement('input'); //will need to edit the pokécard height to make sure it fits
             notesInput.type = 'text';
             notesInput.placeholder = 'Add a note!';
             notesInput.classList.add(
                 "px-4",
-                "w-90%",
+                "w-[90%]",
                 "h-8",
                 "bg-white",
                 "shadow-md",
@@ -112,60 +114,56 @@ const loadFavorites = async () => {
                 "border",
                 "text-xs",
                 "m-1",
-                "inline-block"
+                "inline-block",
+                "relative",
+                "-mr-[9px]"
             );
 
-        const addNotesButton = document.createElement('button');
-        addNotesButton.textContent = " Save"
+        const addNotesButton = document.createElement('i');
+        //addNotesButton.textContent = " Save"
         addNotesButton.classList.add(
-            "fa-regular",
-            "fa-note-sticky",
+            "fa-solid",
+            "fa-check",
             "cursor-pointer",
-            "text-xs",
-            "hover:text-[#bc7a25]",
-            "text-[#f6eac5]",
-            "font-bolder",
-            "bg-[#90402c]",
-            "px-2",
-            "py-1",
-            "my-2",
-            "rounded-xl",
-            "shadow-md",
+            "text-[#008913]",
+            "font-bold",
+            "relative",
+            "right-[12px]",
+            "top-[12px]"
 
         ); //will style later when it works
 
-
+        const noteUl = document.createElement("ul");
+        noteUl.classList.add("list-none","w-full","px-5");
         const addNote = (note) => {
             const newNote = document.createElement('li');
             newNote.setAttribute("id", note.id);
             // newNote.textContent = note.text;
-            newNote.classList.add("text-xs", "list-none", "inline");
+            newNote.classList.add("text-xs","flex","justify-between","my-2","items-center");
             
             const notesContainer = document.createElement('span');
             notesContainer.textContent = note.text; //should make the text of the span be the li items?
             notesContainer.classList.add(
                 "block",
-                "text-xs",
                 "text-[#90402c]",
                 "overflow-x-auto", //currently doesnt do anything, nor the one below
                 "scrollbar",
-
             );
 
             //creates delete button and removes element
-            const deleteBtn = document.createElement('button');
-            deleteBtn.textContent = 'Delete';
-            deleteBtn.classList.add("text-red-500", "list-none", "inline", "pl-2", "hover:font-bold");
+            const deleteBtn = document.createElement('i');
+            //deleteBtn.textContent = 'Delete';
+            deleteBtn.classList.add("fa-solid","fa-trash", "hover:font-bold","text-[#e30000]","cursor-pointer");
             deleteBtn.addEventListener('click', () => {
                 saveNotes = saveNotes.filter((note) => note.id !== newNote.id);
                 localStorage.setItem("note", JSON.stringify(saveNotes));
 
-                pokeCard.removeChild(newNote);
+                noteUl.removeChild(newNote);
             });
 
             newNote.appendChild(notesContainer);
             newNote.appendChild(deleteBtn);
-            pokeCard.appendChild(newNote);
+            noteUl.appendChild(newNote);
         }
 
 
@@ -199,8 +197,10 @@ const loadFavorites = async () => {
     pokeInfo.appendChild(pokeType);
     pokeInfo.appendChild(favoriteText); // Unfavorite button 
     pokeCard.appendChild(pokeInfo);
-    pokeCard.appendChild(notesInput); //same as above
-    pokeCard.appendChild(addNotesButton); //just testing if it works, delete later
+    addNoteContainer.appendChild(notesInput); //same as above
+    addNoteContainer.appendChild(addNotesButton); //just testing if it works, delete later
+    pokeCard.appendChild(addNoteContainer);
+    pokeCard.appendChild(noteUl);
 
     saveNotes.forEach((note) => {
         if(note.pokemonID == pokemonData.id) {
