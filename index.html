@@ -11,7 +11,7 @@
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <title>Pokédex</title>
 </head>
-<body id="page" class="flex h-[100vh]"> 
+<body id="page" class="flex h-[100vh] bg-[#7391a9]"> 
     <!--the whole body is flex and seperate the page to 2 parts-->
     <header id="header" class=" bg-[url('assets/images/index-background.png')] bg-cover
     max-h-full w-1/3 text-right bg-[#f6eac5] mr-2 pt-[11%] px-3">
@@ -23,21 +23,22 @@
         
         <!-- <h1 class="font-black ">Pokédex</h1>
         <h2 class="font-black" >Homepage</h2> we also can just not have this part since the name of the page will be in the header -->
-        <nav id="nav-links" class="text-[#90402c] font-bold">
+        <nav id="nav-links" class="text-[#90402c] font-bold -skew-x-3">
             <ul class="list-none flex justify-around pt-4">
                 <li><a href="#" class="hover:text-[#54351C] decoration-dotted underline decoration-1 underline-offset-6">Homepage</a></li>
                 <li><a href="./assets/html/journal.html" class="hover:text-[#54351C]">Journal</a></li>    
             </ul>
         </nav>
-        <section id="hero" class="pt-[15%]">
-            <div id="hero-desc">
-                <h1  class="font-black pb-4 text-lg">Pokémon</h2>
+        <section id="hero" class="">
+            <div id="hero-desc" class="pt-[15%] pr-[10%]" >
+                <h1  class="font-black pb-4 text-5xl -skew-x-8">Pokémon</h2>
                 <p class="text-md">Gotta catch 'em all! Or at least the original 151 of them.</p>
             </div>
 
-            <div id="hero-image" class="mt-12 max-w-2/3">
+            <div id="hero-image" class="mt-40 mx-[20%]">
                 <!--only if we want one-->
-                <img src="./assets/images/Pokemon.png" class="rounded-xl h-auto" alt="Description">
+                <img src="./assets/images/Pokemon.png" class="rounded-xl h-auto max-w-[300px]" alt="Description">
+                
 
             </div>
         </section>
