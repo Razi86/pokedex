@@ -139,7 +139,7 @@ const loadFavorites = async () => {
             const newNote = document.createElement('li');
             newNote.setAttribute("id", note.id);
             // newNote.textContent = note.text;
-            newNote.classList.add("text-xs","flex","justify-between","my-2","items-center");
+            newNote.classList.add("text-xs","flex","justify-between","my-2","items-center", "bg-[#EFE9D0]");
             
             const notesContainer = document.createElement('span');
             notesContainer.textContent = note.text; //should make the text of the span be the li items?
@@ -148,6 +148,7 @@ const loadFavorites = async () => {
                 "text-[#90402c]",
                 "overflow-x-auto", //currently doesnt do anything, nor the one below
                 "scrollbar",
+                
             );
 
             //creates delete button and removes element
