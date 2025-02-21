@@ -1,0 +1,24 @@
+*{
+    box-sizing: border-box;
+}
+
+html,body{
+    margin: 0;
+    padding: 0;
+    color: #bb711b;
+    font-family: "Montserrat", serif;
+}
+
+.scrollbar::-webkit-scrollbar{
+    width: 5px;
+}
+
+.scrollbar::-webkit-scrollbar-track{
+    border-radius: 8px;
+    background: #ebd9a2;
+}
+
+.scrollbar::-webkit-scrollbar-thumb{
+    background: #bb711b;
+    border-radius: 8px;
+}
